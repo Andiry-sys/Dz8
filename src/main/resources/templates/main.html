@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link href="webjars/bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Pizza</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each ="user :users">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.phoneNumber}"></td>
+                <td th:text="${user.address}"></td>
+                <td th:text ="${user.email}"></td>
+                <td th:text="${user.pizza}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/add}">Create order</a>
+
+</div>
+</body>
+<script src="webjars/bootstrap/5.2.2/js/bootstrap.min.js"></script>
+
+</html>

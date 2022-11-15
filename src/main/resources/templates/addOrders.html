@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add orders</title>
+  <link href="webjars/bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form action="/add" method="post" th:object="${user}">
+  <input type="text" th:field="*{id}" hidden/>
+  <div class="mb-3">
+    <label for="exampleName" class="form-label">Name</label>
+    <input type="text" class="form-control" id="exampleName" th:fiels="*{name}" required/>
+  </div>
+  <div class="mb-3">
+    <label for="examplePhoneNumber" class="form-label">Phone number</label>
+    <input type="text" class="form-control" id="examplePhoneNumber" th:field="*{phoneNumber}" required/>
+  </div>
+  <div class="mb-3">
+    <label for="exampleAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="exampleAddress" th:field="*{address}" required/>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}" required/>
+  </div>
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example">
+      <option th:each="pizza :${pizzas}" th:text="${pizza}" th:value="${pizza}"/>
+    </select>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Create order"/>
+</form>
+
+
+</body>
+<script src="webjars/bootstrap/5.2.2/js/bootstrap.min.js"></script>
+
+</html>
