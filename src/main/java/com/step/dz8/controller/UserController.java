@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -15,13 +16,18 @@ public class UserController {
     @GetMapping("/*")
     public String getUsers(Model model){
         model.addAttribute("users",repository.findAll());
-        return "users";
+        return "main";
     }
 
     @GetMapping("/add")
     public String getUserForm(Model model){
         model.addAttribute("pizzas", Pizza.values());
-        model.addAttribute("users",new User());
-        return "user_add";
+        model.addAttribute("user",new User());
+        return "addOrders";
+    }
+    @PostMapping("/add")
+    public String addUser(User user){
+        repository.save(user);
+        return "redirect:/";
     }
 }

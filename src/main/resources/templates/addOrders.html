@@ -6,11 +6,12 @@
   <link href="webjars/bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
 <form action="/add" method="post" th:object="${user}">
   <input type="text" th:field="*{id}" hidden/>
   <div class="mb-3">
     <label for="exampleName" class="form-label">Name</label>
-    <input type="text" class="form-control" id="exampleName" th:fiels="*{name}" required/>
+    <input type="text" class="form-control" id="exampleName" th:field="*{name}" required/>
   </div>
   <div class="mb-3">
     <label for="examplePhoneNumber" class="form-label">Phone number</label>
@@ -25,13 +26,13 @@
     <input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}" required/>
   </div>
   <div class="mb-3">
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" aria-label="Default select example" th:field="*{pizza}">
       <option th:each="pizza :${pizzas}" th:text="${pizza}" th:value="${pizza}"/>
     </select>
   </div>
   <input type="submit" class="btn btn-primary" value="Create order"/>
 </form>
-
+</div>
 
 </body>
 <script src="webjars/bootstrap/5.2.2/js/bootstrap.min.js"></script>
