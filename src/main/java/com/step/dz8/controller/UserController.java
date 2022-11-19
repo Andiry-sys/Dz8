@@ -30,4 +30,6 @@ public class UserController {
         repository.save(user);
         return "redirect:/";
     }
+
+    
 }
