@@ -25,4 +25,7 @@ public class User {
     private String email;
     @Enumerated(EnumType.STRING)
     private Pizza pizza;
+    @Enumerated(EnumType.STRING)
+    private Toppings topping;
+
 }

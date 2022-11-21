@@ -30,6 +30,11 @@
       <option th:each="pizza :${pizzas}" th:text="${pizza}" th:value="${pizza}"/>
     </select>
   </div>
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example" th:field="*{topping}">
+      <option th:each="topping :${toppings}" th:text="${topping}" th:value="${topping}"/>
+    </select>
+  </div>
   <input type="submit" class="btn btn-primary" value="Create order"/>
 </form>
 </div>
